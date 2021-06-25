@@ -34,3 +34,26 @@ if(w>wt){//cant take hence probe further KS(weight[], Cost[], Wt,n-1); }
 else{ profit+= max(KS(weight[], Cost[], Wt,n-1),Cost[n-1]+KS(weight[], Cost[], Wt-Cost[n-1],n-1));}
 return profit;
 
+
+################ 0-1 Knapsack ############# MEMOIZATION ##################
+int knapsack(int weight[], int Cost[], int Wt, int n){
+  if(n==0||Wt==0){ return 0; }
+  if(w>wt){//cant take hence probe further KS(weight[], Cost[], Wt,n-1); } 
+  else{ profit+= max(KS(weight[], Cost[], Wt,n-1),Cost[n-1]+KS(weight[], Cost[], Wt-Cost[n-1],n-1));}
+  return profit;
+}
+Here we observe that in every recursion the value of Wt and n is changing. Hence we need a grid of size O(Wt+1*n+1)
+Because we also need to store the value of 0 in the matrix
+therefore the matrix Dp is as follows
+int dp[n+1][t+1]
+memset(dp,-1,sizeOf(t))
+int knapsack(int weight[], int Cost[], int Wt, int n){
+  if(n==0||Wt==0){ return 0; }
+  if(dp[n][w]!=-1){return dp[n][w];}
+  if(w>wt){//cant take hence probe further  profit+=KS(weight[], Cost[], Wt,n-1); } 
+  else{ profit+= max(KS(weight[], Cost[], Wt,n-1),Cost[n-1]+KS(weight[], Cost[], Wt-Cost[n-1],n-1));}
+  dp[n][w]=profit;
+  return profit;
+}
+
+
