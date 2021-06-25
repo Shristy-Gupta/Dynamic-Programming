@@ -1,0 +1,36 @@
+# 6 Variations:
+1) Subset Sum
+2) Equal Sum Partition
+3) Count the subset sum
+4) Min subset sum Diff
+5) Target Sum
+6) Number of Subset of given difference
+
+KnapSack problem are of three types
+1) Fractional Knapsack-->Greedy
+2) 0/1 Knapsack
+3) Unbounded Knapsack
+
+
+To identify that this is a DP problem we need to focus on two things
+1) Choice
+2) Optimal
+
+Given problem
+weight: 1 2 4 5
+Cost:   1 4 5 7
+
+
+First think for smallest valid input for # Base condition
+1) We have weight array, Cost array and Weight of knapsack
+2) Valid weights of all the three varaibles are 0(size cannot be less than zero) , 0, 0 ( weight can never be negative)
+In the above scenario the total profit is 0
+if(n==0 || wt==0){ return 0;}
+
+Second think of choice for each item/ choice diagram:
+1) If the weight of the item is greater than the knapsack weight--> We cant include it.
+2) If the weight of the item is lesser than the knapsack weight--> we can include it or we cant include it.
+if(w>wt){//cant take hence probe further KS(weight[], Cost[], Wt,n-1); } 
+else{ profit+= max(KS(weight[], Cost[], Wt,n-1),Cost[n-1]+KS(weight[], Cost[], Wt-Cost[n-1],n-1));}
+return profit;
+
