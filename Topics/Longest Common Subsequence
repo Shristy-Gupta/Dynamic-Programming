@@ -12,3 +12,24 @@ Longest Common Subsequence Types:
 11) Count of palindromic sunstring
 12) Min number of deletions in the string to make a palindrome
 13) Min number of insertions in the string to make a palindrome 
+
+Longest Common Subsequence:
+
+   Subsequence is discontinous
+Problem statement:
+Given 2 strings X and Y
+X: abcdfg
+Y: abedfhl
+
+Base Condition:
+if (len(X)==0 || len(Y)==0) return 0;
+
+Choice Diagram:
+if the characters matches then, take that element and make recursive call to n-1 element
+if the characters doesnt match then, take max of one of the susequence
+if(X[n-1]==Y[m-1]){return 1+ sub(X,Y,n-1,m-1)} else{ return max(sub(X,Y,n,m-1), sub(X,Y,n-1,m));}
+
+
+Longest Common Subsequence Memoization:
+We need a matrix of size n+1 * m+1
+
