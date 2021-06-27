@@ -13,7 +13,7 @@ for(int i=0;i<=n;i++){
 return the max value in the matrix and not t[m][n]. Just traverse through the matrix once and store max value in a variable and return that. Why it is so? Cuz substring can exist anywhere in between.
 2) Print LCS : https://www.youtube.com/watch?v=x5hQvnUcjiM&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=23
 
-3) Shortest Common Super sequence
+3) Shortest Common Super sequence https://www.youtube.com/watch?v=823Grn4_dCQ&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=24
 4) print SCS
 5) Minimum Number of Insertions and Deletions
 6) Largest Repeating Subsequence
