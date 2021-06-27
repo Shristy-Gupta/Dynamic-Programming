@@ -2,6 +2,28 @@ Unbounded Knapsack--> any number of items is present
 
 if(wt[i-1]<=j){max(val[i-1]+dp[i][j-wt[i-1]],dp[i-1][j])} else{ dp[i-1][j];}
 1) Rod cutting: https://www.youtube.com/watch?v=SZqAQLjDsag&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=14
+
+
 2) Coin Change 1: https://www.youtube.com/watch?v=I4UR2T6Ro3w&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=15
-3) Coin Change 2
+why this is a knapsack problem?
+a) we have choice to add that change or remove it + total number of coins is given sum
+b) It is unbounded because the number of coins of a type is infinite
+Initialization:
+a) We need a matrix of size n+1 * sum+1
+b) when the sum is zero then dp[i][0]=1
+c) when the array length is zero then dp[0][i]=0
+if(coin[i-1]<=j){dp[i][j-coins[i-1]]+dp[i-1][j]} else{ dp[i-1][j];}
+
+
+3) Coin Change 2: https://www.youtube.com/watch?v=I-l6PBeERuc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=16
+Problem statement: Minimum number of ways to get the sum of coins
+Example: coins[]= {1,2,3}
+Sum: 5
+Therefore Number of ways is 5:
+1+1+1+1+1=5
+1+1+1+2=5
+1+2+2=5
+1+1+3=5
+2+3=5
+Minimun number of coin= 2 {2+3} 
 4) Max Ribbon cut
