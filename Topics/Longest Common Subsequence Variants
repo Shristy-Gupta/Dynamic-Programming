@@ -15,7 +15,7 @@ return the max value in the matrix and not t[m][n]. Just traverse through the ma
 
 3) Shortest Common Super sequence https://www.youtube.com/watch?v=823Grn4_dCQ&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=24
 m+n-LCS
-4) print SCS
+4) print SCS : https://www.youtube.com/watch?v=VDhRg-ZJTuc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=29
 5) Minimum Number of Insertions and Deletions
 6) Largest Repeating Subsequence
 7) Length of largest subsequence which is also a substring in b
