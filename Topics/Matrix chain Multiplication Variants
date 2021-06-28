@@ -8,7 +8,13 @@ if(i==j){
  if(istrue){return s[i]=='T';}
  else{return s[i]=='F';}
 }
+for(int k=i+1;k<=j-1;k+=2){
 
+int lt=solve(s,i,k-1,true);
+int lf=solve(s,i,k-1,false);
+int rt=solve(s,k+1,j,true);
+int rf=solve(s,k+1,j,false);
+}
 
 3) Minimimum and Maximum value of an expression
 4) Palindromic partitioning : https://www.youtube.com/watch?v=szKVpQtBHh8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=36
