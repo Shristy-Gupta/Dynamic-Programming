@@ -14,6 +14,9 @@ int lt=solve(s,i,k-1,true);
 int lf=solve(s,i,k-1,false);
 int rt=solve(s,k+1,j,true);
 int rf=solve(s,k+1,j,false);
+if(k=='^'){if(istrue)ans=lt*rf+lf*rt; else{lt*rt + rf*lf;}}
+if(k=='|'){if(istrue){ans=lt*rt + lt*rf + rt*lf;}else{ ans=lf*rf;}}
+if(k=='&'){if(istrue){ans=lt*rt}else{ans=lt*rf + rt*lf + lf*rf}}
 }
 
 3) Minimimum and Maximum value of an expression
