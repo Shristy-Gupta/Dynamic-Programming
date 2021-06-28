@@ -3,6 +3,13 @@ Matrix chain Multiplication
 6 Variants:
 1) Priniting MCM
 2) Evaluate expression to true or Boolean parenthesis: https://www.youtube.com/watch?v=pGVguAcWX4g&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=39
+if(i>j){return false;}
+if(i==j){
+ if(istrue){return s[i]=='T';}
+ else{return s[i]=='F';}
+}
+
+
 3) Minimimum and Maximum value of an expression
 4) Palindromic partitioning : https://www.youtube.com/watch?v=szKVpQtBHh8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=36
 for (k=i k=j-1) i to k and k+1 to j
