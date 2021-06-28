@@ -7,3 +7,19 @@ Matrix chain Multiplication
 4) Palindromic partitioning
 5) Scramble strings
 6) Egg dropping problem
+
+
+MCM problem statement:
+Two schemes
+k=i k=j-1 --> (i to k) and (k+1 to j)
+k=i+1 k=j --> (i to k-1) and (k to j)
+
+int min=INT_MAX;
+int solve(int arr[], int i, int j){
+  if(i>=j){return INT_MAX;}
+  for(int k=i;k<j;k++){
+    int tempans=solve(arr,i,k) + solve(arr,k+1,j) + arr[i-1]*arr[k]*arr[j];
+    min=min(min,tempans);
+  }
+  return min;
+}
