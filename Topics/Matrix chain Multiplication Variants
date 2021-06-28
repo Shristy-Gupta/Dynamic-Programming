@@ -5,5 +5,6 @@ Matrix chain Multiplication
 2) Evaluate expression to true or Boolean parenthesis
 3) Minimimum and Maximum value of an expression
 4) Palindromic partitioning : https://www.youtube.com/watch?v=szKVpQtBHh8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=36
+In the worst case for the string of size n, the maximum number of partitions are n-1. 
 5) Scramble strings
 6) Egg dropping problem
