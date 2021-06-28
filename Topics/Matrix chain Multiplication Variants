@@ -13,6 +13,7 @@ In the worst case for the string of size n, the maximum number of partitions are
 code:
 int solve(int arr[], int i, int j){
   if(i>=j){return 0;}
+  if(partition(arr,i,j){return 0;}
   int ans=INT_MAX;
   for(int k=i;k<j;k++){
   //partition
