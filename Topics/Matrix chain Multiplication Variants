@@ -15,8 +15,10 @@ int solve(int arr[], int i, int j){
   if(i>=j){return 0;}
   if(partition(arr,i,j){return 0;}
   int ans=INT_MAX;
+  /////////////memoize (i,j)
   for(int k=i;k<j;k++){
   //partition
+  /////////////memoize (1,k) and (k+1,j)
   ans=min(1+ solve(1,k) +solve(k+1,j));
   }
   return ans;
