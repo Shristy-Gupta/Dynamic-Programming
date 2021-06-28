@@ -17,7 +17,7 @@ return the max value in the matrix and not t[m][n]. Just traverse through the ma
 m+n-LCS
 4) print SCS : https://www.youtube.com/watch?v=VDhRg-ZJTuc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=29
 5) Minimum Number of Insertions and Deletions
-6) Largest Repeating Subsequence
+6) Largest Repeating Subsequence: https://www.youtube.com/watch?v=hbTaCmQGqLg&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=30
 7) Length of largest subsequence which is also a substring in b
 8) Sunsequence Pattern Matching
 9) Count how many times a appear as sub sequence in b
