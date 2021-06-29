@@ -96,3 +96,7 @@ public:
 };
 6) Egg dropping problem:
 https://www.youtube.com/watch?v=S49zeUjeUL0&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=43
+
+Base condition:
+if(egg==1){return maxfloors;}
+if(maxfloors==0 ||maxfloors==1){return maxfloors;}
