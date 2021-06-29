@@ -1,5 +1,17 @@
  Variants:
  1) Diameter of a Binary Tree: https://www.youtube.com/watch?v=zmPj_Ee3B8c&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=48
  2) Maximum Path from any node to any : https://www.youtube.com/watch?v=Osz-Vwer6rw&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=49
+ return max(max(left,right)+ root->val, root->val)
+ 
+ 
+ code:
+ int solve(Node * root, int& ans){
+ if(root==NULL){return 0;}
+ int l=solve(root->left, ans);
+ int r=solve(root->right, ans);
+ int temp=max(max(left,right)+ root->val, root->val);
+ ans=max(ans,temp, l+r,root->val);
+ return ans;
+ }
  3) Maximum Path sum from Leaf to another Leaf
  4) Diameter of N-ary Trees
