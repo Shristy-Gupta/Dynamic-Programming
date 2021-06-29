@@ -40,8 +40,25 @@ int solve(int arr[], int i, int j){
   return ans;
 }
 5) Scramble strings : https://www.youtube.com/watch?v=SqA0o-DGmEw&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=41
-if(solve(a.substr(0,i),b.substr(n-i,i) && solve(a.substr(i,n-i),b.solve(0,i)))
+Base condition:
+if(a.compare(b)==0){return true;}
+if(a.length()<=1){return true;}
+
+if(solve(a.substr(0,i),b.substr(n-i,i) && solve(a.substr(i,n-i),b.substr(0,i)))
 or (if not reversed)
-if(solve(a.substr(0,i),b.substr(0,i) && solve(a.substr(i,n-i),solve(i,n-i)))
+if(solve(a.substr(0,i),b.substr(0,i) && solve(a.substr(i,n-i),substr(i,n-i)))
+
+
+
+#### code:
+if(a.compare(b)==0){return true;}
+if(a.length()<=1){return false;}
+        for(int i=1;i<n;i++){
+            if((isScramble(a.substr(0,i),b.substr(n-i,i)) && isScramble(a.substr(i,n-i),b.substr(0,i))) || 
+               (isScramble(a.substr(0,i),b.substr(0,i)) && isScramble(a.substr(i,n-i),b.substr(i,n-i)))) {
+                return true;
+            }
+        }
+
 
 6) Egg dropping problem
