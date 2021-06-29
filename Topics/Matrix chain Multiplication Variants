@@ -61,5 +61,37 @@ if(a.length()<=1){return false;}
         }
      
 
+## Entire code:
+#include<unordered_map>
 
+class Solution {
+public:
+    unordered_map<string,bool> mp;
+    bool isScramblehelper(string a, string b){
+        if(a.compare(b)==0){return true;}
+        if(a.length()<=1){return false;}
+        int n=a.length();
+    
+        string key=a;
+        key.push_back(' ');
+        key.append(b);
+        if(mp.find(key)!=mp.end()){return mp[key];}
+        
+        
+        for(int i=1;i<n;i++){
+            if((isScramblehelper(a.substr(0,i),b.substr(n-i,i)) && isScramblehelper(a.substr(i,n-i),b.substr(0,n-i))) || 
+               (isScramblehelper(a.substr(0,i),b.substr(0,i)) && isScramblehelper(a.substr(i,n-i),b.substr(i,n-i)))) {
+                return mp[key]=true;
+            }
+        }
+        return mp[key]=false;
+        
+    }
+    bool isScramble(string a, string b) {
+        if(a.compare(b)==0){return true;}
+        if(a.length()!=b.length()){return false;}
+        return isScramblehelper(a,b);
+    }
+    
+};
 6) Egg dropping problem
