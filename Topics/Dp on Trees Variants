@@ -14,4 +14,19 @@
  return ans;
  }
  3) Maximum Path sum from Leaf to another Leaf: https://www.youtube.com/watch?v=ArNyupe-XH0&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=50
+ 
+ 
+  int solve(Node * root, int& ans){
+ if(root==NULL){return 0;}
+ int l=solve(root->left, ans);
+ int r=solve(root->right, ans);
+ int temp=max(max(left,right)+ root->val);
+ if(root->left==NULL && root->right==NULL){
+ //only when its a leaf node it has a priviledge
+ temp=max(temp, root->val);
+ }
+ ans=max(ans,temp, l+r+root->val);
+ return ans;
+ }
+ 
  4) Diameter of N-ary Trees
