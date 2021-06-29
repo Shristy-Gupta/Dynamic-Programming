@@ -39,5 +39,5 @@ int solve(int arr[], int i, int j){
   }
   return ans;
 }
-5) Scramble strings
+5) Scramble strings : https://www.youtube.com/watch?v=SqA0o-DGmEw&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=41
 6) Egg dropping problem
