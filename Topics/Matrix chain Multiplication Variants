@@ -104,10 +104,11 @@ if(maxfloors==0 ||maxfloors==1){return maxfloors;}
 int solve(int egg, int maxfloors){
 if(egg==1){return maxfloors;}
 if(maxfloors==0 ||maxfloors==1){return maxfloors;}
+if(dp[egg][maxfloors]!=-1){return dp[egg][maxfloors];}
 int mn=INT_MAX;
 for(int k=1;k<=maxfloors;k++){
 int temp=1+ max(solve(egg-1,k-1), solve(egg, maxfloors-k));
 mn=min(mn,temp);
 }
-return mn;
+return dp[egg][maxfloors]=mn;
 }
