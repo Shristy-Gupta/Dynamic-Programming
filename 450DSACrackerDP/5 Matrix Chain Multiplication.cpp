@@ -16,6 +16,18 @@ int MatrixChainOrder(int p[], int i, int j){
     }
     return dp[i][j]=ans;
 }
+int MatrixChainOrder_secondVariant(int p[], int i, int j){
+    //Scheme
+    //for(k=i to j) and partition is from i to k-1 and k to j
+    int ans=INT_MAX,tempans;
+    if(i>=j){return 0;}
+    if(dp[i][j]!=-1){return dp[i][j];}
+    for(int k=i+1;k<=j;k++){
+    tempans=MatrixChainOrder(p,i,k-1)+MatrixChainOrder(p,k,j)+p[i-1]*p[k-1]*p[j];
+    ans=min(ans,tempans);
+    }
+    return dp[i][j]=ans;
+}
 
 int main() {
     int arr[] = { 1, 2, 3, 4, 3 };
