@@ -1,0 +1,88 @@
+#include <bits/stdc++.h>
+#include<stdio.h>
+#include<math.h>
+using namespace std;
+
+ // } Driver Code Ends
+
+/*
+ diff = no of ways when color of last
+        two posts is different
+ same = no of ways when color of last 
+        two posts is same
+ total ways = diff + sum
+
+for n = 1
+    diff = k, same = 0
+    total = k
+
+for n = 2
+    diff = k * (k-1) //k choices for
+           first post, k-1 for next
+    same = k //k choices for common 
+           color of two posts
+    total = k +  k * (k-1)
+
+for n = 3
+    diff = [k +  k * (k-1)] * (k-1) 
+           (k-1) choices for 3rd post 
+           to not have color of 2nd 
+           post.
+    same = k * (k-1) 
+           c'' != c, (k-1) choices for it
+
+Hence we deduce that,
+total[i] = same[i] + diff[i]
+same[i]  = diff[i-1]
+diff[i]  = (diff[i-1] + diff[i-2]) * (k-1)
+         = total[i-1] * (k-1)
+*/
+class Solution{
+    public:
+    long long M;
+    long long total[100001];
+    long long same[100001];
+    long long diff[100001];
+    
+    Solution(){
+        M=1000000007;
+        memset(total,0,sizeof(total));
+        memset(same,0,sizeof(same));
+        memset(diff,0,sizeof(diff));
+    }
+    long long countWays(int n, int k){
+        //n is the post and k is the colour
+        if(k<=1){return 0;}
+        if(n==1){return k;}
+        for(int i=1;i<=n;i++){
+            if(i==1){
+                total[i]=k;
+                same[i]=0;
+                diff[i]=k;
+                continue;
+            }
+            same[i]=diff[i-1]%M;
+            diff[i]=(total[i-1]*(k-1))%M;
+            total[i]=(same[i]+diff[i])%M;
+            //cout<<total[i]<<" ";
+        }
+        return total[n];
+    }
+};
+
+// { Driver Code Starts.
+
+int main()
+{
+	
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n,k;
+		cin>>n>>k;
+		Solution ob;
+		cout<<ob.countWays(n,k)<<endl;
+	}
+	return 0;
+}  // } Driver Code Ends
