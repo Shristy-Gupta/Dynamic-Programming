@@ -100,4 +100,25 @@ Variants
 2) Longest increase subarray
 3) Maximum subsequence sum such that no three are consecutive
 4) Longest subsequence such that difference between adjacent is one
+int longestSubsequence(int N, int nums[])
+    {
+        int n=N;
+        if(n<=1){return n;}
+        int dp[n];
+        for(int i=0;i<n;i++){
+            dp[i]=1;
+        }
+        int ans=-1;
+        for(int i=1;i<n;i++){
+            for(int j=0;j<i;j++){
+                if(abs(nums[j]-nums[i])==1){
+                    //consider the element
+                    dp[i]=max(dp[i],dp[j]+1);
+                }
+            }
+            ans=max(ans,dp[i]);
+        }
+        return ans;
+    }
+};
 5) Count all subsequences having product less than K
