@@ -122,3 +122,4 @@ int longestSubsequence(int N, int nums[])
     }
 };
 5) Count all subsequences having product less than K
+6) Maximum Length Chain of Pairs
