@@ -123,3 +123,23 @@ int longestSubsequence(int N, int nums[])
 };
 5) Count all subsequences having product less than K
 6) Maximum Length Chain of Pairs
+int maxChainLen(struct val p[],int n)
+{
+   //LIS variant
+   if(n<=1){return n;}
+   int dp[n],ans=0;
+   for(int i=0;i<n;i++){
+       dp[i]=1;
+   }
+   for(int i=1;i<n;i++){
+       for(int j=0;j<i;j++){
+           if(p[j].second<p[i].first){
+               dp[i]=max(dp[i],dp[j]+1);
+               //dp[i]=dp[j]+1;
+           }
+       }
+       
+       ans=max(ans,dp[i]);
+   }
+   return ans;
+}
