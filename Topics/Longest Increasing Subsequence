@@ -160,3 +160,30 @@ int numSquares(int n) {
         }
         return dp[n];
     }
+    8) Minimum number of jumps to reach end
+    
+    int minJumps(int arr[], int n){
+        //LIS Variant
+        if(arr[0]==0){
+            return -1;
+        }
+        if(n==0 || n==1){
+            return 0;
+        }
+        int dp[n];
+        for(int i=0;i<n;i++){
+            dp[i]=INT_MAX;
+        }
+        dp[0]=0;
+        int res=INT_MAX;
+        for(int i=1;i<n;i++){
+            for(int j=0;j<i;j++){
+                if(dp[j]!=INT_MAX && arr[j]+j>=i){
+                    //Need to be evalualted
+                    dp[i]=min(dp[j]+1,dp[i]);
+                }
+            }
+        }
+        if(dp[n-1]!=INT_MAX){return dp[n-1];}
+        return -1;
+    }
