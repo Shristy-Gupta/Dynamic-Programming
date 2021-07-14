@@ -69,7 +69,7 @@ for(int j=1;j<=Wt;j++){
 if(w[i-1]>j){//cant take hence probe further  dp[i][j]=dp[i-1][j]; } 
 }
 else{
-dp[i][j]=max(weight[i-1]+ dp[i-1][j-weight[i-1]], dp[i-1][j]);
+dp[i][j]=max(cost[i-1]+ dp[i-1][j-weight[i-1]], dp[i-1][j]);
 }
 }
 return dp[n][n];
