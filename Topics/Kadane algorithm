@@ -31,7 +31,7 @@ int maxSubArraySum(int a[], int size)
 }
 
 Variants:
-Maximum Product Subarray
+1)Maximum Product Subarray
 
 class Solution {
 public:
@@ -56,3 +56,5 @@ public:
         return res;
     }
 };
+2)Kadane's Algorithm Maximum Sum
+3)Smallest sum contiguous subarray Minimum Sum
