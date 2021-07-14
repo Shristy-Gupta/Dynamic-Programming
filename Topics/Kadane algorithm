@@ -58,3 +58,19 @@ public:
 };
 2)Kadane's Algorithm Maximum Sum
 3)Smallest sum contiguous subarray Minimum Sum
+int smallestSumSubarr(int arr[], int n){
+    //Kadane algorithm
+    int finalans=INT_MAX;
+    int smallans=0;
+    for(int i=0;i<n;i++){
+        if(smallans>0){
+            smallans=arr[i];
+        }
+        else{
+            smallans+=arr[i];
+        }
+        finalans=min(finalans,smallans);
+        
+    }
+    return finalans;
+}
