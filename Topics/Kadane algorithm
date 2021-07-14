@@ -59,7 +59,7 @@ public:
 2)Kadane's Algorithm Maximum Sum
  int maxSubarraySum(int arr[], int n){
         
-        int maxsofar=INT_MIN,ans=INT_MIN;
+        int maxsofar=0,ans=INT_MIN;
         for(int i=0;i<n;i++){
             if (maxsofar<0){
                 maxsofar=arr[i];
