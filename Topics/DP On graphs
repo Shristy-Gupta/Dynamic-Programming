@@ -1,2 +1,33 @@
 Varants:
 Largest Independent Set Problem : https://www.geeksforgeeks.org/largest-independent-set-problem-dp-26/
+class node
+{
+    public:
+    int data;
+    int liss;
+    node *left, *right;
+};
+
+int LISS(node *root)
+{
+     if(root==NULL){
+         return 0;
+     }
+     if(root->liss!=0){return root->liss;}
+     if(root->left==NULL && root->right==NULL){
+         //leaf
+         root->liss=1;
+         return root->liss;
+     }
+     int liss_child=LISS(root->left)+LISS(root->right);
+     int liss_grand_child=1;
+     if(root->left!=NULL){
+         liss_grand_child+=LISS(root->left->left)+LISS(root->left->right);
+     }
+     if(root->right!=NULL){
+         liss_grand_child+=LISS(root->right->left)+LISS(root->right->right);
+     }
+     root->liss=max(liss_child,liss_grand_child);
+     return root->liss;
+    
+}
