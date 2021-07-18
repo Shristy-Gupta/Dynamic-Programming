@@ -24,6 +24,23 @@ int findMaxProfitrecc(Job arr[], int n){
     int exclude_profit=findMaxProfitrecc(arr,n-1);
     return max(include_profit,exclude_profit);
 }
+int findMaxProfitDp(Job arr[], int n){
+    //Top to Bottom
+    int *table=new int[n];
+    table[0]=arr[0].profit;
+    for(int i=1;i<n;i++){
+        int include_profit=arr[i].profit;
+        int latestnonconflictjob=latestNonConflict(arr,i);
+        if(latestnonconflictjob!=-1){
+        include_profit+=table[latestnonconflictjob];
+        }
+        table[i]=max(include_profit,table[i-1]);
+    }
+    int result=table[n-1];
+    delete[] table;
+    return result;
+    
+}
 
 bool jobComparator(Job s1,Job s2){
     return s1.finish<s2.finish;
