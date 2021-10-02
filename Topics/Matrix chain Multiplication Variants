@@ -3,20 +3,70 @@ Matrix chain Multiplication
 6 Variants:
 1) Priniting MCM
 2) Evaluate expression to true or Boolean parenthesis: https://www.youtube.com/watch?v=pGVguAcWX4g&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=39
-if(i>j){return false;}
-if(i==j){
- if(istrue){return s[i]=='T';}
- else{return s[i]=='F';}
+int mod=1e3+3;
+unordered_map<string,int> dp;
+int solve(string A, int i, int j,bool isTrue){
+    if(i>j){
+        return true;
+    }
+    if(i==j){
+        if(isTrue==true){
+            return A[i]=='T';
+        }
+        else{
+           return A[i]=='F'; 
+        }
+    }
+    string key=to_string(i)+"_"+to_string(j)+"_"+to_string(isTrue);
+    if(dp.find(key)!=dp.end()){
+        return dp[key];
+    }
+    //+2 beacuse we want sign in the parttion
+    int ans=0;
+    for(int k=i+1;k<=j-1;k+=2){
+       int lt=solve(A,i,k-1,true);
+       int lf=solve(A,i,k-1,false);
+       int rt=solve(A,k+1,j,true);
+       int rf=solve(A,k+1,j,false); 
+       if(A[k]=='^'){
+           if(isTrue==true){
+               ans=((ans)%mod+(lt*rf)%mod+(lf*rt)%mod)%mod;
+           }
+           else{
+               ans=((ans)%mod+(lt*rt)%mod +(lf*rf)%mod)%mod;
+           }
+       }
+       else if(A[k]=='|'){
+           if(isTrue==true){
+               ans=((ans)%mod+(lt*rf)%mod+(lf*rt)%mod+(lt*rt)%mod)%mod;
+           }
+           else{
+               ans=((ans)%mod+(lf*rf)%mod)%mod;
+           }
+       }
+       else if(A[k]=='&'){
+           if(isTrue==true){
+               ans=((ans)%mod+(lt*rt)%mod)%mod;
+           }
+           else{
+               ans=((ans)%mod+(lt*rf)%mod+(lf*rt)%mod+(lf*rf)%mod)%mod;
+           }
+       }    
+    }
+    dp[key]=ans;
+    return ans;
 }
-for(int k=i+1;k<=j-1;k+=2){
-
-int lt=solve(s,i,k-1,true);
-int lf=solve(s,i,k-1,false);
-int rt=solve(s,k+1,j,true);
-int rf=solve(s,k+1,j,false);
-if(k=='^'){if(istrue)ans=lt*rf+lf*rt; else{lt*rt + rf*lf;}}
-if(k=='|'){if(istrue){ans=lt*rt + lt*rf + rt*lf;}else{ ans=lf*rf;}}
-if(k=='&'){if(istrue){ans=lt*rt}else{ans=lt*rf + rt*lf + lf*rf}}
+//THIS IS AN MCM VARIANT
+int Solution::cnttrue(string A) {
+    int n=A.length();
+    if(n<0){
+        return 0;
+    }
+    if(n==1){
+        return A[0]=='T';
+    }
+    
+    return solve(A,0,n-1,true);
 }
 
 3) Minimimum and Maximum value of an expression
