@@ -1,6 +1,7 @@
 # Dynamic-Programming
 Dynamic Programming Notes and Questions in C++
 Dynamic Programming questions--> https://450dsa.com/dynamic_programming
+Cheet Sheet--> https://medium.com/@rohitverma_87831/dynamic-programming-cheatsheet-e2cde4cc92bc
 
 Notes
 
